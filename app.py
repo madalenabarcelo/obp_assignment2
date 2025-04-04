@@ -11,7 +11,7 @@ repair_rate = st.number_input("Repair rate (μ)", min_value=0.0, value=0.5)
 standby_mode = st.selectbox("Standby Mode", ["Warm", "Cold"])
 n = st.number_input("Total number of components (n)", min_value=1, value=5)
 k = st.number_input("Minimum working components required (k)", min_value=1, max_value=int(n), value=3)
-r = st.number_input("Number of repairmen", min_value=1, value=2)
+r = st.number_input("Number of repairmen", min_value=1, max_value=int(n), value=2)
 ES = 1 / failure_rate  
 
 # Core Logic for Part (a) 
