@@ -22,8 +22,12 @@ def machine_repairman(n, k, r, λ, μ):
     
     # Build pi recursively using balance equations
     for j in range(1, n + 1):
-        λ_j_minus_1 = λ * min(n - (j - 1), k)
-        μ_j = μ * min(j, r)
+        if j<= n-k+1:
+            λ_j_minus_1 = λ * k # k active machines can break
+        else:
+            λ_j_minus_1 = 0 # System is down
+
+        μ_j = μ * min(j, r) # repair rate
         pi_j = pi[j - 1] * (λ_j_minus_1 / μ_j)
         pi.append(pi_j)
 
